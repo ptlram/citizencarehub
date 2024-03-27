@@ -1,0 +1,21 @@
+.complaint-details-container {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.complaint-details h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.complaint-details p {
+  margin-bottom: 10px;
+}
+
+.complaint-details p strong {
+  font-weight: bold;
+  margin-right: 5px;
+}

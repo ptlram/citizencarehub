@@ -1,0 +1,114 @@
+*{margin: 0%; padding:0%; box-sizing: border-box;}
+
+.cd{
+    background-color: #e9e8e8;
+}
+
+.bod{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family:sans-serif;
+    background: linear-gradient(#2c2477,#3d33ac,#6363cc);
+    
+}
+#csk{
+    display: none;
+}
+
+.tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10%;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #fff;
+    font-size: 100% ;
+}
+.main{
+    width: 400px;
+    height: 550px;
+    background: linear-gradient(#2c2477,#3d33ac,#6363cc);
+    overflow:hidden;
+    border-radius: 10px;
+    background: no-repeat center/cover;
+    box-shadow: 5px 20px 50px #000;
+}
+
+.signup{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+label{
+    color: #fff;
+    font-size: 2.3em;
+    justify-content: center;
+    display: flex;
+    margin: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.input{
+    width: 60%; 
+    height: 25px;
+    background: #fff;
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.button{
+    width: 60%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    color: #fff;
+    background: #573b8a;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    outline: none;
+    border:none;
+    border-radius: 5px;
+    transition: .2s ease-in;
+    cursor: pointer;
+}
+.button:hover{
+        background: #573b8a;
+}
+.signin{
+    height: 460px;
+    background:#ffffff;
+    border-radius: 60%/10%;
+    transform: translateY(-180px);
+    transition: .8s ease-in-out;
+}
+
+.signin label{
+    color:#573b8a;
+    transform: scale(.6);
+}
+
+#csk:checked ~ .signin{
+    transform: translateY(-520px);
+}
+#csk:checked ~ .signin label{
+    transform: scale(1);
+}
+
+#csk:checked ~ .signup label{
+    transform: scale(.6);
+}

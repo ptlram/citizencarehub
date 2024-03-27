@@ -1,0 +1,39 @@
+.user-profile-container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.user-profile-header {
+    background-color: #8da9ef;
+    padding: 8px;
+}
+
+.user-profile-title {
+    font-size: 3xl;
+    font-weight: bold;
+    color: black;
+}
+
+.user-profile-details {
+    max-width: 3xl;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile-row {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 4px;
+    padding: 8px;
+}
+
+.user-profile-label {
+    font-weight: bold;
+    color: gray;
+}
+
+.user-profile-value {
+    color: #333;
+}
