@@ -27,18 +27,6 @@ const Complaintdetails = ({ detail }) => {
                   <strong>Description:</strong> {data.description}
                 </p>
                 <p>
-                  <strong>District:</strong> {data.district}
-                </p>
-                <p>
-                  <strong>Pincode:</strong> {data.pincode}
-                </p>
-                <p>
-                  <strong>Location:</strong> {data.location}
-                </p>
-                <p>
-                  <strong>Contact:</strong> {data.contact}
-                </p>
-                <p>
                   <strong>Proof:</strong> {data.proff}
                 </p>
               </div>

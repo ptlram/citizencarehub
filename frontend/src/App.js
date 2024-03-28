@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 //customer
 import Login from "./user/Login";
@@ -10,7 +11,7 @@ import About from "./user/About";
 import Contact from "./user/Contact";
 import Complaintdetails from "./user/complaintdetails";
 import Userprofile from "./user/Userprofile";
-import { useState, useEffect } from "react";
+import Status from "./user/status.jsx";
 
 //admin
 import Newcomplaint from "./admin/assign/Newcomplaint.jsx";
@@ -94,6 +95,7 @@ function App() {
           path="/complaintdetails"
           element={<Complaintdetails detail={detail} />}
         />
+        <Route path="/status" element={<Status />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<Userprofile />} />

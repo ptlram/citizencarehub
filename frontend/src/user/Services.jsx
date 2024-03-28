@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Nevbar from "./Nevbar";
 import Footer from "./Footer";
+
 const Services = () => {
   return (
     <div>
@@ -15,21 +16,21 @@ const Services = () => {
           alignItems: "center",
         }}
       >
-        <div className="bt" style={{ width: "500px", height: "100px" }}>
-          <NavLink style={{ textDecoration: "none" }} to="/Complaint">
+        <NavLink to="/Complaint" style={{ textDecoration: "none" }}>
+          <div className="bt" style={{ width: "500px", height: "100px" }}>
             Register Complaint
-          </NavLink>
-        </div>
-        <div className="bt" style={{ width: "500px", height: "100px" }}>
-          <NavLink style={{ textDecoration: "none" }} to="/complaintdetails">
+          </div>
+        </NavLink>
+        <NavLink to="/complaintdetails" style={{ textDecoration: "none" }}>
+          <div className="bt" style={{ width: "500px", height: "100px" }}>
             Complaint details
-          </NavLink>
-        </div>
-        <div className="bt" style={{ width: "500px", height: "100px" }}>
-          <NavLink style={{ textDecoration: "none" }} to="/status">
-            status Complaint
-          </NavLink>
-        </div>
+          </div>
+        </NavLink>
+        <NavLink to="/status" style={{ textDecoration: "none" }}>
+          <div className="bt" style={{ width: "500px", height: "100px" }}>
+            Status Complaint
+          </div>
+        </NavLink>
       </div>
       <div>
         <Footer />
