@@ -28,43 +28,57 @@ const Facultynewcompaint = ({ newcomplaint, users }) => {
       <div>
         <Facultynevbar />
       </div>
-      <div>
-        {Pendingcomplaint.map((data, i) => {
-          return (
-            <>
-              <div className="complaint-details-container">
-                <h2>Complaint Details</h2>
-                <div className="complaint-details">
-                  <p>
-                    <strong>Title:</strong> {data.title}
-                  </p>
+      {Pendingcomplaint === null || Pendingcomplaint.length === 0 ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "50vh",
+            fontSize: "50px",
+          }}
+        >
+          <strong>not solve any complaints .</strong>
+        </div>
+      ) : (
+        <div>
+          {Pendingcomplaint.map((data, i) => {
+            return (
+              <>
+                <div className="complaint-details-container">
+                  <h2>Complaint Details</h2>
+                  <div className="complaint-details">
+                    <p>
+                      <strong>Title:</strong> {data.title}
+                    </p>
 
-                  <p>
-                    <strong>Description:</strong> {data.description}
-                  </p>
-                  <p>
-                    <strong>District:</strong> {data.district}
-                  </p>
-                  <p>
-                    <strong>Pincode:</strong> {data.pincode}
-                  </p>
-                  <p>
-                    <strong>Location:</strong> {data.location}
-                  </p>
-                  <p>
-                    <strong>Contact:</strong> {data.contact}
-                  </p>
-                  <p>
-                    <strong>Proof:</strong> {data.proff}
-                  </p>
+                    <p>
+                      <strong>Description:</strong> {data.description}
+                    </p>
+                    <p>
+                      <strong>District:</strong> {data.district}
+                    </p>
+                    <p>
+                      <strong>Pincode:</strong> {data.pincode}
+                    </p>
+                    <p>
+                      <strong>Location:</strong> {data.location}
+                    </p>
+                    <p>
+                      <strong>Contact:</strong> {data.contact}
+                    </p>
+                    <p>
+                      <strong>Proof:</strong> {data.proff}
+                    </p>
 
-                  <Response id={data._id} complaintemail={data.email} />
+                    <Response id={data._id} complaintemail={data.email} />
+                  </div>
                 </div>
-              </div>
-            </>
-          );
-        })}
-      </div>
+              </>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };

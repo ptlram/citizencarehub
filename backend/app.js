@@ -104,6 +104,64 @@ app.get("/api/solvecomplaint", async (req, res) => {
   }
 });
 
+// user stauts
+
+app.get("/api/newstatus/:email", async (req, res) => {
+  const userEmail = req.params.email;
+  try {
+    // Query the database to find data where the email matches
+    const userComplaints = await Complaint.find({
+      email: userEmail,
+      status: "new",
+    });
+    res.json(userComplaints);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.get("/api/pendingstatus/:email", async (req, res) => {
+  const userEmail = req.params.email;
+  try {
+    // Query the database to find data where the email matches
+    const userComplaints = await Complaint.find({
+      email: userEmail,
+      status: "pending",
+    });
+    res.json(userComplaints);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.get("/api/rejectedstatus/:email", async (req, res) => {
+  const userEmail = req.params.email;
+  try {
+    // Query the database to find data where the email matches
+    const userComplaints = await Complaint.find({
+      email: userEmail,
+      status: "rejected",
+    });
+    res.json(userComplaints);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.get("/api/compeletedstatus/:email", async (req, res) => {
+  const userEmail = req.params.email;
+  try {
+    // Query the database to find data where the email matches
+    const userComplaints = await Complaint.find({
+      email: userEmail,
+      status: "completed",
+    });
+    res.json(userComplaints);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 app.get("/api/citizen", async (req, res) => {
   try {
     const result = await db.find();
@@ -119,7 +177,7 @@ app.get("/api/details/:email", async (req, res) => {
   try {
     const email = req.params.email;
     const data = await db.findOne(email, email);
-    res.send(data);
+    res.json(data);
   } catch (err) {
     res.send(err);
   }
@@ -170,7 +228,9 @@ app.delete("/api/citizen/:id", async (req, res) => {
 });
 
 const mongo = mongoose
-  .connect("mongodb+srv://ramvijaypatel96:ram@cluster0.vvyksiw.mongodb.net/")
+  // .connect("mongodb+srv://ramvijaypatel96:ram@cluster0.vvyksiw.mongodb.net/")
+  .connect("mongodb://localhost:27017/ram")
+
   .then(() => {
     console.log("connected");
     app.listen(5000, () => {

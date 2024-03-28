@@ -11,7 +11,11 @@ import About from "./user/About";
 import Contact from "./user/Contact";
 import Complaintdetails from "./user/complaintdetails";
 import Userprofile from "./user/Userprofile";
-import Status from "./user/status.jsx";
+import Status from "./user/status/status.jsx";
+import Statusnew from "./user/status/statusnew.jsx";
+import Statusinprogress from "./user/status/statusinprogress.jsx";
+import Statusrejected from "./user/status/statusrejected.jsx";
+import Statussolve from "./user/status/statussolve.jsx";
 
 //admin
 import Newcomplaint from "./admin/assign/Newcomplaint.jsx";
@@ -70,7 +74,7 @@ function App() {
 
       // Make fetch request to API  with the email
       const response = await fetch(
-        `http://localhost:5000/api/complaints/${userEmail}`
+        `http://localhost:5000/api/newstatus/${userEmail}`
       );
       const jasondatas = await response.json();
 
@@ -96,6 +100,11 @@ function App() {
           element={<Complaintdetails detail={detail} />}
         />
         <Route path="/status" element={<Status />} />
+        <Route path="/statusnew" element={<Statusnew />} />
+        <Route path="/statusinprogress" element={<Statusinprogress />} />
+        <Route path="/statusrejected" element={<Statusrejected />} />
+        <Route path="/statussolve" element={<Statussolve />} />
+
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<Userprofile />} />

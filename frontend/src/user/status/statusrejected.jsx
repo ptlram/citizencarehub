@@ -1,33 +1,36 @@
 import React from "react";
-import Facultynevbar from "../facultynevbar";
-import "../../admincss/Newcomplaint.css";
+import Nevbar from "../Nevbar";
+import Footer from "../Footer";
 import { useState, useEffect } from "react";
-import Showresponse from "./showresponse";
+const Statusrejected = () => {
+  const [detail, setdetail] = useState([]);
 
-const Facultycompleted = ({ users }) => {
-  const [solvecomplaint, setsolvecomplaint] = useState([]);
-
-  const getsolvecomplaint = async () => {
+  const getdetail = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/solvecomplaint");
-      const jsonData = await response.json();
-      // console.log(jsonData)
-      setsolvecomplaint(jsonData);
+      // Retrieve email from local storage
+      const userEmail = JSON.parse(localStorage.getItem("users")).email;
+
+      // Make fetch request to API  with the email
+      const response = await fetch(
+        `http://localhost:5000/api/rejectedstatus/${userEmail}`
+      );
+      const jasondatas = await response.json();
+
+      setdetail(jasondatas);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching data:", error);
     }
   };
 
   useEffect(() => {
-    getsolvecomplaint();
+    getdetail();
   }, []);
-
   return (
     <>
       <div>
-        <Facultynevbar />
+        <Nevbar />
       </div>
-      {solvecomplaint === null || solvecomplaint.length === 0 ? (
+      {detail === null || detail.length === 0 ? (
         <div
           style={{
             display: "flex",
@@ -37,11 +40,11 @@ const Facultycompleted = ({ users }) => {
             fontSize: "50px",
           }}
         >
-          <strong>not solve any complaints .</strong>
+          <strong>No new complaints register or complaints accepted..</strong>
         </div>
       ) : (
         <div>
-          {solvecomplaint.map((data, i) => {
+          {detail.map((data, i) => {
             return (
               <>
                 <div key={i} className="complaint-details-container">
@@ -69,11 +72,7 @@ const Facultycompleted = ({ users }) => {
                     <p>
                       <strong>Proof:</strong> {data.proff}
                     </p>
-
-                    <div>
-                      <h2>Image Details</h2>
-                    </div>
-                    <Showresponse userid={data._id} />
+                    {/* only above code render in this page so... it render till <Temp> and asign is render in different pages  */}
                   </div>
                 </div>
               </>
@@ -81,8 +80,9 @@ const Facultycompleted = ({ users }) => {
           })}
         </div>
       )}
+      <Footer />
     </>
   );
 };
 
-export default Facultycompleted;
+export default Statusrejected;

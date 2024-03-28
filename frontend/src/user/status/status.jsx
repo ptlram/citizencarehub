@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Nevbar from "./Nevbar";
-import Footer from "./Footer";
+import Nevbar from "../Nevbar";
+import Footer from "../Footer";
 
 const Status = () => {
   return (

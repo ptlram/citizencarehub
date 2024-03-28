@@ -27,46 +27,60 @@ const Donecom = ({ users }) => {
       <div>
         <AdNevbar />
       </div>
-      <div>
-        {solvecomplaint.map((data, i) => {
-          return (
-            <>
-              <div key={i} className="complaint-details-container">
-                <h2>Complaint Details</h2>
-                <div className="complaint-details">
-                  <p>
-                    <strong>Title:</strong> {data.title}
-                  </p>
+      {solvecomplaint === null || solvecomplaint.length === 0 ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "50vh",
+            fontSize: "50px",
+          }}
+        >
+          <strong>not solve any complaints .</strong>
+        </div>
+      ) : (
+        <div>
+          {solvecomplaint.map((data, i) => {
+            return (
+              <>
+                <div key={i} className="complaint-details-container">
+                  <h2>Complaint Details</h2>
+                  <div className="complaint-details">
+                    <p>
+                      <strong>Title:</strong> {data.title}
+                    </p>
 
-                  <p>
-                    <strong>Description:</strong> {data.description}
-                  </p>
-                  <p>
-                    <strong>District:</strong> {data.district}
-                  </p>
-                  <p>
-                    <strong>Pincode:</strong> {data.pincode}
-                  </p>
-                  <p>
-                    <strong>Location:</strong> {data.location}
-                  </p>
-                  <p>
-                    <strong>Contact:</strong> {data.contact}
-                  </p>
-                  <p>
-                    <strong>Proof:</strong> {data.proff}
-                  </p>
+                    <p>
+                      <strong>Description:</strong> {data.description}
+                    </p>
+                    <p>
+                      <strong>District:</strong> {data.district}
+                    </p>
+                    <p>
+                      <strong>Pincode:</strong> {data.pincode}
+                    </p>
+                    <p>
+                      <strong>Location:</strong> {data.location}
+                    </p>
+                    <p>
+                      <strong>Contact:</strong> {data.contact}
+                    </p>
+                    <p>
+                      <strong>Proof:</strong> {data.proff}
+                    </p>
 
-                  <div>
-                    <h2>Image Details</h2>
+                    <div>
+                      <h2>Image Details</h2>
+                    </div>
+                    <Showcom userid={data._id} />
                   </div>
-                  <Showcom userid={data._id} />
                 </div>
-              </div>
-            </>
-          );
-        })}
-      </div>
+              </>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };
