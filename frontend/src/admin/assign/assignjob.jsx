@@ -39,7 +39,6 @@ const Assignjob = ({ complaint, users, id }) => {
         <>
           <div className="modal-content">
             <p>
-              {users[1].email}
               <Selectfaculty complaint={complaint} users={users} id={id} />
             </p>
 

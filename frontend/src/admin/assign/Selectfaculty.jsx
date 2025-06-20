@@ -26,16 +26,22 @@ const Selectfaculty = ({ users, complaint, id }) => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
       {users
         .filter((data) => data.role === "faculty")
         .map((data) => {
           return (
             <>
-              <div>
-                <p>{data.facultyDetails}</p>
-                <button onClick={handleUpdateStatus}>Assignjob</button>
-                {/* <Modifystatus complaint={complaint} /> */}
+              <div style={{ padding: "20px" }}>
+                <h1>{data.facultyDetails}</h1>
+                <button className="bt" onClick={handleUpdateStatus}>
+                  Assign job
+                </button>
               </div>
             </>
           );
